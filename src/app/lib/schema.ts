@@ -1,7 +1,10 @@
-import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+// lib/schema.ts
+import { pgTable, serial, text } from "drizzle-orm/pg-core";
 
-export const users = pgTable("users", {
+// Define the Scraps Table
+export const scraps = pgTable("scraps", {
   id: serial("id").primaryKey(),
-  name: varchar("name", { length: 255 }),
-  email: text("email").unique(),
+  kindeId: text("kinde_id").notNull(),
+  scrapUrl: text("scrap_url").notNull(),
+  data: text("data").array().notNull(), // Array of text
 });

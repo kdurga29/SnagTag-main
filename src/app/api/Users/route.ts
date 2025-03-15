@@ -1,7 +1,8 @@
+// app/api/users/route.ts
 import { db } from "@/app/lib/ds";
-import { users } from "@/app/lib/schema";
+import { scraps } from "@/app/lib/schema"; // Import scraps instead of users
 
 export async function GET() {
-  const allUsers = await db.select().from(users);
-  return Response.json(allUsers);
+  const allScraps = await db.select().from(scraps); // Query scraps instead of users
+  return Response.json(allScraps);
 }
